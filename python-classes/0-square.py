@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Create an empty sqaure"""
+"""Define a class Sqaure"""
 
 
-class Sqaure:
-    """    class sqaure"""
+class Square:
+    """class sqaure"""
     pass
