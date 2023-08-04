@@ -1,3 +1,3 @@
 #!/bin/bash
-# -sL used for silencing the progress while the L or location of the Https
+# Get the response body for a given URL for 200 status code responses.
 curl -sL "$1"
