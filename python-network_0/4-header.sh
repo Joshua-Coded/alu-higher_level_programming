@@ -1,3 +1,4 @@
 #!/bin/bash
 # requested
-curl -s -H "X-HolbertonSchool-User-Id: 98" "$1"
+curl -s  GET -H "X-HolbertonSchool-User-Id: 98" "$1"
+
