@@ -1,3 +1,3 @@
 #!/bin/bash
-# get message request
-curl "$1" -sX GET -H "X-HolbertonSchool-User-Id: 98"
+# requested
+curl -s -H "X-HolbertonSchool-User-Id: 98" "$1"
