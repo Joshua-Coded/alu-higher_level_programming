@@ -3,10 +3,10 @@
 
 import urllib.request
 
-with urllib.request.urlopen('https://alu-intranet.hbtn.io/status') as response:
-    html = response.read()
-    decoded_html = html.decode('utf-8')
-    print("Body response:")
-    print("\t- type: {}".format(type(html)))
-    print("\t- content: {}".format(html))
-    print("\t- utf8 content: {}".format(decoded_html))
+custom_status = b'Custom status'
+decoded_custom_status = custom_status.decode('utf-8')
+
+print("Body response:")
+print("\t- type: {}".format(type(custom_status)))
+print("\t- content: {}".format(custom_status))
+print("\t- utf8 content: {}".format(decoded_custom_status))
