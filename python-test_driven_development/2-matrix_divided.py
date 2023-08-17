@@ -1,23 +1,31 @@
 #!/usr/bin/python3
-"""_summary_
-This module divides all elements of a matrix by a number
-"""
+"""Defines a matrix division function."""
 
 
 def matrix_divided(matrix, div):
-    """_summary_
+    """Divides all element of a matrix
 
-    Args:
-        matrix (_type_): _list of lists of integers or floats_
-        div (_type_): _a number (integer or float)_
-
-    Raises:
-        TypeError: _if div is not an integer_
-        ZeroDivisionError: _if div is 0_
-        TypeError: _if all the lists in matrix are not of same length_
-        TypeError: _if matrix is not a list of list_
-        TypeError: _if any list contains a value diff from an integer_
+    :param matrix: The matrix(list of list) whose element are to be \n
+    divided by div
+    :type matrix: list
+    :param div: The value that divides each element in the matrix
+    :type div: int
+    :returns: A new matrix (list of list), derived form the division
+    :rtype: list(list of lists)
+    :raise: TypeError if div is not an int
+    :raise: TypeError if matrix is not a list of lists
+    :raise: TypeError if each row of the matrix is not of the same size
     """
+
+    if (not isinstance(matrix, list) or matrix == [] or
+            not all(isinstance(row, list) for row in matrix) or
+            not all((isinstance(ele, int) or isinstance(ele, float))
+                    for ele in [num for row in matrix for num in row])):
+        raise TypeError("matrix must be a matrix (list of lists) of "
+                        "integers/floats")
+
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
 
     if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")
@@ -25,25 +33,4 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    message = "matrix must be a matrix (list of lists) of integers/floats"
-    m = matrix
-    if not isinstance(m, list) or not all([isinstance(x, list) for x in m]):
-        raise TypeError(message)
-
-    if len(matrix) == 0:
-        raise TypeError(message)
-
-    length = len(matrix[0])
-
-    if not all([len(x) == length for x in matrix]):
-        raise TypeError("Each row of the matrix must have the same size")
-
-    new_matrix = []
-    for arr in matrix:
-        new_list = []
-        for num in arr:
-            if not isinstance(num, int) and not isinstance(num, float):
-                raise TypeError(message)
-            new_list.append(round((num / div), 2))
-        new_matrix.append(new_list)
-    return new_matrix
+    return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])

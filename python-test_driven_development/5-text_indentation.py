@@ -1,33 +1,27 @@
 #!/usr/bin/python3
-"""_summary_
-Write a function that prints a square with the character #.
-"""
+"""Defines a text-indentation function."""
 
 
 def text_indentation(text):
-    """_summary_
-
-    Args:
-        text (_str_): _description: A text_
-
-    Raises:
-        TypeError: _If text is not a string_
-    """
-
+    """A function that prints two new lines after the char ...
+        :param text:
+        :type text:; string
+        :raise TypeError: if text is not a string
+        """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    index = 0
-    while index < len(text) and text[index] == ' ':
-        index += 1
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
 
-    while index < len(text):
-        print(text[index], end="")
-        if text[index] == "\n" or text[index] in ".?:":
-            if text[index] in ".?:":
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:":
+            if text[c] in ".?:":
                 print("\n")
-            index += 1
-            while index < len(text) and text[index] == ' ':
-                index += 1
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
             continue
-        index += 1
+        c += 1

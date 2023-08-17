@@ -1,27 +1,20 @@
 #!/usr/bin/python3
-"""_summary_
-Write a function that prints My name is <first name> <last name>
-"""
+"""Defines a name-printing function."""
 
 
 def say_my_name(first_name, last_name=""):
-    """_summary_
+    """Print the inputed name
 
-    Args:
-        first_name (_type_): _User first name_
-        last_name (str, optional): _User last name_. Defaults to "".
-
-    Raises:
-        TypeError: _if first_name is not a string_
-        TypeError: _if last_name is not a string_
-
-    Returns:
-        _str_: _My name is {first_name} {last_name}_
+    :param: first_name
+    :type first_name: string
+    :raise: TypeError if first_name not string
+    :param: last_name
+    :type last_name: string
+    :raises: TypeError if last_name not string
+    :returns: none
     """
-
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
     if not isinstance(last_name, str):
         raise TypeError("last_name must be a string")
-
-    print(f"My name is {first_name} {last_name}")
+    print("My name is {} {}".format(first_name, last_name))
