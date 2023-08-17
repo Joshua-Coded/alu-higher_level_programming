@@ -1,15 +1,27 @@
 #!/usr/bin/python3
-"""Defines an integer addition function."""
+"""_summary_
+This module returns an integer: the addition of a and b
+"""
 
 
 def add_integer(a, b=98):
-    """Return the integer addition of a and b.
-    Float arguments are typecasted to ints before addition is performed.
+    """_summary_
+
+    Args:
+        a (_type_): _description_
+        b (int, optional): _description_. Defaults to 98.
+
     Raises:
-        TypeError: If either of a or b is a non-integer and non-float.
+        TypeError: __if a is neither an int or float object__
+        TypeError: __if b is neither an int or float object__
+
+    Returns:
+        _type_: __The addition of a and b__
     """
-    if ((not isinstance(a, int) and not isinstance(a, float))):
+
+    if not (isinstance(a, int)) and not (isinstance(a, float)):
         raise TypeError("a must be an integer")
-    if ((not isinstance(b, int) and not isinstance(b, float))):
+    if not (isinstance(b, int)) and not (isinstance(b, float)):
         raise TypeError("b must be an integer")
-    return (int(a) + int(b))
+
+    return int(a) + int(b)
